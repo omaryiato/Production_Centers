@@ -6,20 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Service\ServiceLogic;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\ResponsHelper;
-use setasign\Fpdi\Fpdi;
 use App\Services\PdfService;
-
 // use App\Helper\UploadDocumnetAcrchive;
 
 class ProductionCenter extends Controller
 {
     protected $serviceLogic;
-    protected $pdfService;
-    protected $uploadTemplet;
+    // protected $pdfService;
+    // protected $uploadTemplet;
 
     public function __construct(ServiceLogic $serviceLogic, PdfService $pdfService)
     {
-        $this->pdfService = $pdfService;
+        // $this->pdfService = $pdfService;
         $this->serviceLogic = $serviceLogic;
         // $this->uploadTemplet = $uploadTemplet;
     }
@@ -28,8 +26,7 @@ class ProductionCenter extends Controller
     public function index(Request $request)
     {
         try {
-            $hashkey = $request->hash_key;
-
+            $hashkey = $request->hashkey;
             $hashkey = $this->serviceLogic->checkUserValidation($hashkey);
             return ResponsHelper::success($hashkey);
         } catch (\Exception $e) {
@@ -37,7 +34,7 @@ class ProductionCenter extends Controller
         }
     }
 
-    // orderList Funtion To Get Orders Requeset list from DB
+    // orderList Funtion To Get Orders List from DB
     public function orderList(Request $request)
     {
         try {
@@ -50,8 +47,8 @@ class ProductionCenter extends Controller
         }
     }
 
-    // orderDetailsLisr Funtion To Get  Order Details List from DB
-    public function orderDetailsLisr(Request $request)
+    // orderDetailsList Funtion To Get  Order Details List from DB
+    public function orderDetailsList(Request $request)
     {
         try {
             $order_ID = $request->orderID;
@@ -121,21 +118,21 @@ class ProductionCenter extends Controller
     }
 
     // getFactory Funtion To Fetch All Factory In DB
-    public function getFactory()
+    public function getFactoryList()
     {
         try {
-            $factory_Info = $this->serviceLogic->getFactory();
-            return ResponsHelper::success($factory_Info);
+            $factory_list = $this->serviceLogic->getFactoryList();
+            return ResponsHelper::success($factory_list);
         } catch (\Exception $e) {
             return ResponsHelper::error($e->getMessage());
         }
     }
 
     // editOrder Funtion To Edit Order Info 
-    public function editOrder(Request $request)
+    public function editOrderInfo(Request $request)
     {
         try {
-            $order_Info = $this->serviceLogic->editOrder($request);
+            $order_Info = $this->serviceLogic->editOrderInfo($request);
             return ResponsHelper::success($order_Info);
         } catch (\Exception $e) {
             return ResponsHelper::error($e->getMessage());
@@ -143,10 +140,10 @@ class ProductionCenter extends Controller
     }
 
     // updateOrder Funtion To Update Order Status
-    public function updateOrder(Request $request)
+    public function updateOrderInfo(Request $request)
     {
         try {
-            $order_Info = $this->serviceLogic->updateOrder($request);
+            $order_Info = $this->serviceLogic->updateOrderInfo($request);
             return ResponsHelper::success($order_Info);
         } catch (\Exception $e) {
             return ResponsHelper::error($e->getMessage());

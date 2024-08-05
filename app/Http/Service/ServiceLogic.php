@@ -17,8 +17,7 @@ class ServiceLogic
         $this->mainOracleRepo = $mainOracleRepo;
     }
 
-
-    // Index Funtion To Check The IP Address And The Hashkey
+    // Index Funtion To Check The Hashkey
     public function checkUserValidation($hashkey)
     {
         return $this->mainOracleRepo->checkUserValidation($hashkey);
@@ -30,16 +29,16 @@ class ServiceLogic
         return $this->mainOracleRepo->getOrderList($order_ID);
     }
 
-    // getSectionList Funtion To Get Sections list from DB
+    // getOrderDetailsList Funtion To Get Order Details List from DB
     public function getOrderDetailsList($order_ID)
     {
-        //
+        return $this->mainOracleRepo->getOrderDetailsList($order_ID);
     }
 
     // getOpmList Funtion To Get OPM list from DB
     public function getOpmList()
     {
-        //
+        return $this->mainOracleRepo->getOpmList();
     }
 
     // getOrderHistoryList Funtion To Get Order History list from DB
@@ -67,21 +66,21 @@ class ServiceLogic
     }
 
     // getFactory Funtion To Get All Factory In DB
-    public function getFactory()
+    public function getFactoryList()
     {
-        return $this->mainOracleRepo->getFactory();
+        return $this->mainOracleRepo->getFactoryList();
     }
 
     // editOrder Funtion To Edit Order Info 
-    public function editOrder($request)
+    public function editOrderInfo($request)
     {
-        return $this->mainOracleRepo->editOrder($request);
+        return $this->mainOracleRepo->editOrderInfo($request);
     }
 
     // updateOrder Funtion To Update Order Status
-    public function updateOrder($request)
+    public function updateOrderInfo($request)
     {
-        return $this->mainOracleRepo->updateOrder($request);
+        return $this->mainOracleRepo->updateOrderInfo($request);
     }
 
     // confirmOrder Funtion To Confirm Order From Project

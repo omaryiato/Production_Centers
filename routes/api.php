@@ -30,13 +30,13 @@ Route::GET('/order_details_history_list', [ProductionCenter::class, 'orderDetail
 Route::POST('/assign_oreder', [ProductionCenter::class, 'assignOreder'])->name('assign_oreder');
 
 // Define a route to Fetch Factories
-Route::GET('/get_factory', [ProductionCenter::class, 'getFactory'])->name('get_factory');
+Route::GET('/get_factory', [ProductionCenter::class, 'getFactoryList'])->name('get_factory');
 
 // Define a route to Update Order From Project
-Route::POST('/edit_order', [ProductionCenter::class, 'editOrder'])->name('edit_order');
+Route::POST('/edit_order_Info', [ProductionCenter::class, 'editOrderInfo'])->name('edit_order_Info');
 
 // Define a route to Update Order From The Factory 
-Route::POST('/update_order', [ProductionCenter::class, 'updateOrder'])->name('update_order');
+Route::POST('/update_order_Info', [ProductionCenter::class, 'updateOrderInfo'])->name('update_order_Info');
 
 // Define a route to Confirm Order From The Project 
 Route::POST('/confirm_order', [ProductionCenter::class, 'confirmOrder'])->name('confirm_order');

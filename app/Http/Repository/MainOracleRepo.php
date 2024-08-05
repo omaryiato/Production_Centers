@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\DB;
 class MainOracleRepo
 {
 
-
-    // Index Funtion To Check The IP Address And The Hashkey
+    // Index Funtion To Check The Hashkey
     public function checkUserValidation($hashkey)
     {
         return DB::select("SELECT xxajmi_sshr_ticketing.xxajmi_user_valid('$hashkey') AS User_Validate FROM dual");
@@ -59,19 +58,19 @@ class MainOracleRepo
     }
 
     // getFactory Funtion To Fetch Factory List From DB
-    public function getFactory()
+    public function getFactoryList()
     {
         //
     }
 
     // editOrder Funtion To Edit Order Info 
-    public function editOrder($request)
+    public function editOrderInfo($request)
     {
         //
     }
 
     // updateOrder Funtion To Update Order Status
-    public function updateOrder($request)
+    public function updateOrderInfo($request)
     {
         //
     }
